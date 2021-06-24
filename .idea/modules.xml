@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ApiMeteo.iml" filepath="$PROJECT_DIR$/.idea/ApiMeteo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../CursoPython1/.idea/CursoPython1.iml" filepath="$PROJECT_DIR$/../CursoPython1/.idea/CursoPython1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../restApiPython/.idea/restApiPython.iml" filepath="$PROJECT_DIR$/../restApiPython/.idea/restApiPython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ApiMeteoPython.iml" filepath="$PROJECT_DIR$/.idea/ApiMeteoPython.iml" />
     </modules>
   </component>
 </project>
