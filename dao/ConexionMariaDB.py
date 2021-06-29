@@ -10,7 +10,7 @@ def singleton(class_):
     return getinstance
 
 @singleton
-class ConexionMariaDB():
+class ConexionMariaDB ():
     conexion = None
 
     def getInstancia(self): 
