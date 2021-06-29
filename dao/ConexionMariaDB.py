@@ -30,7 +30,22 @@ class ConexionMariaDB():
                 print(f"Error conectando a MariaDB: {e}")
         else:
             print("Ya tiene conector", self.conexion)
-        
 
-ConexionMariaDB().getInstancia()
-ConexionMariaDB().getInstancia()
+    def obtenerInfoById(self, idValor: int):
+        # Get Cursor
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT * FROM ESTA_METEO_DATA WHERE ID=?", (idValor,))
+        for fila in cursor:
+            print(f"ID: {fila[0]}, CHIP_ID: {fila[1]}, TEMPERATURA: {fila[2]}, HUMEDAD: {fila[3]}, "
+                  f"HIC: {fila[4]}, FECHA_CREACION: {fila[5]}")
+        cursor.close()
+        self.conexion.close()
+
+    def obtenerByChip(self, chipId: str):
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT * FROM ESTA_METEO_DATA WHERE CHIP_ID=?", (chipId,))
+        for fila in cursor:
+            print(f"ID: {fila[0]}, CHIP_ID: {fila[1]}, TEMPERATURA: {fila[2]}, HUMEDAD: {fila[3]}, "
+                  f"HIC: {fila[4]}, FECHA_CREACION: {fila[5]}")
+        cursor.close()
+        self.conexion.close()
