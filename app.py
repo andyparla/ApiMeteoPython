@@ -3,7 +3,7 @@ from flask_restful import Api
 import os
 from controller.Controller import meteo
 from controller.Controller import EstacionMeteo
-from dao import ConexionMariaDB
+from dao.ConexionMariaDB import ConexionMariaDB
 
 app = Flask(__name__)
 app.secret_key = os.urandom(64)
