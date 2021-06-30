@@ -22,5 +22,5 @@ class EstacionMeteoControllerPost(Resource):
 
     def post(self):
         chipData = self.parser.parse_args(strict=True)
-        print(chipData['chipData'][0])
+        print(chipData['chipData'])
         return {'status': 'success'}
