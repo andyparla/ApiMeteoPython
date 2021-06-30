@@ -1,2 +1,2 @@
-class MeteBean():
+class MeteoBean():
     pass
