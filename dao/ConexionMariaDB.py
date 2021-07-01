@@ -1,5 +1,6 @@
 import mariadb
 import sys
+from dtos.MeteoBean import MeteoBean
 
 def singleton(class_):
     instances = {}
@@ -48,4 +49,18 @@ class ConexionMariaDB ():
             print(f"ID: {fila[0]}, CHIP_ID: {fila[1]}, TEMPERATURA: {fila[2]}, HUMEDAD: {fila[3]}, "
                   f"HIC: {fila[4]}, FECHA_CREACION: {fila[5]}")
         cursor.close()
+        self.conexion.close()
+
+    def saveInfoChip(self, meteoBean: MeteoBean):
+        cursor = self.conexion.cursor()
+        try:
+            cursor.execute("INSERT INTO PRODUCT (CHIP_ID, TEMPERATURA, HUMEDAD, hic, FEC_GRABADO) VALUES (?,?,?,?,?)",\
+                (meteoBean.getChipId(), meteoBean.getTemperatura(),
+                 meteoBean.getHumedad(), meteoBean.getHic(),
+                 meteoBean.getFechaGrabado()))
+        except mariadb.Error as e:
+            print(f"Error: {e}")
+
+        print(f"{cursor.rowcount}, details inserted")
+        self.conexion.commit()
         self.conexion.close()
