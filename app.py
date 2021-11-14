@@ -21,5 +21,6 @@ def beforefreq():
     ConexionMariaDB().getInstancia()
     logging.basicConfig(level=logging.INFO)
 
+
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
